@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: PLACEHOLDER_ECR_IMAGE
+        image: 710922701736.dkr.ecr.ap-southeast-1.amazonaws.com/nodejs-devops-app:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
