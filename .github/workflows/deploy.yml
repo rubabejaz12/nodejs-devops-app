@@ -58,6 +58,7 @@ jobs:
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
           docker pull $ECR_REGISTRY/$ECR_REPO:latest
           minikube image load $ECR_REGISTRY/$ECR_REPO:latest
+          kubectl apply -f /home/ubuntu/node-aws-project/k8s/
           kubectl set image deployment/nodejs-app nodejs-app=$ECR_REGISTRY/$ECR_REPO:latest
           kubectl rollout restart deployment/nodejs-app
           kubectl rollout status deployment/nodejs-app --timeout=120s
